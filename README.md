@@ -97,6 +97,18 @@ Get into the project folder and type:
 
 When finished we will have all dependencies installed.
 
+### Creating a ruby gem
+
+* Create the pagelyzer gem
+
+    `$ gem build pagelyzer.gemspec`
+
+* Install the pagelyzer gem
+
+    `$ gem install ./pagelyzer-0.1.0.gem`
+
+
+
 ## Command-line Parameters
 
 pagelyzer:
