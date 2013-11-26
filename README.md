@@ -67,10 +67,6 @@ The folder structure should be like the following:
 * ext/
 * ext/marcalizer
 * lib/
-* out 
-
-Note: out folder is intended to be an output folder, but it is optional. Can be overridden with
-parameters.
 
 ## Installing Dependencies
 After the language and the package manager are properly configured and installed, we may proceed
@@ -138,7 +134,7 @@ For the input URL file it expects the following syntax of each line:
 
 `$ ./pagelyzer capture --url=http://www.google.fr`
 
-It will copy to $HOME_FOLDER/pagelyzer the outcome. If the folder does not exist it will be created. It will create three files: 
+The outcome will be stored in the folder `out` in the current workking directory. If the folder does not exist it will be created. Pagelyzer capture will create three files: 
 
 * firefox_www_google_fr.html (rendered version of the web page)
 * firefox_www_google_fr.dhtml (rendered version with visual cues included for segmentation algorithm)

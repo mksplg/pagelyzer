@@ -85,7 +85,7 @@ def verify_data_folder(path)
 end
 
 def get_java_instance
-	libpath = "#{Dir.pwd}/lib"
+	libpath = File.expand_path(File.dirname(__FILE__)) + "/../lib"
 	#classpath = ENV['CLASSPATH'] ||= ''
 	classpath = [File.join(libpath,'MarcAlizer.jar'),File.join(libpath,'pagelyzerjavalib.jar')].join(":")
 	Rjb::load(classpath, ['-Xms128m','-Xmx1024m'])
@@ -110,7 +110,7 @@ if argv==[]
 end
 
 current_folder = File.expand_path(File.dirname(File.dirname(__FILE__)))
-output_folder = "#{current_folder}/out"
+output_folder = File.join(Dir.pwd, '/out/')
 marcalizer_obj,javalib_obj = get_java_instance
 
 #~ config not needed in standalone configuration
@@ -185,7 +185,7 @@ argv.each do |op|
 end
 
 if output_file.empty?
-	output_file="#{current_folder}/out/#{type}_result.xml" 
+	output_file = File.join(output_folder, "#{type}_result.xml")
 else
 	unless File.exists?(File.dirname(output_file))
 		FileUtils.mkdir_p File.dirname(output_file)

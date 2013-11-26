@@ -10,7 +10,7 @@ require 'selenium-webdriver'
 	current_folder = File.expand_path(File.dirname(File.dirname(__FILE__)))
 	url = ""
 	browser = "firefox"
-	output_folder = "#{current_folder}/out"
+	output_folder = File.join(Dir.pwd, '/out/')
 	no_screenshot = false
 	remote = false
 	thumb = false
