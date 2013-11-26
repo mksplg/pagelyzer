@@ -69,16 +69,20 @@ The folder structure should be like the following:
 * lib/
 
 ## Installing Dependencies
-After the language and the package manager are properly configured and installed, we may proceed
-to install the dependencies:
+After the language and the package manager are properly configured and installed, we may proceed to install the dependencies:
+
 `$ sudo apt-get install libxslt-dev libxml2-dev`
+
 `$ sudo apt-get install openjdk-7-jdk`
+
 `$ sudo apt-get install imagemagick`
+
 `$ sudo apt-get install xvfb`
 
-Note1: Installing the selenium-webdriver may cause some warnings in text encoding that should be
-fine, in almost all the cases.
+Note 1: Installing the selenium-webdriver may cause some warnings in text encoding that should be fine, in almost all the cases.
+
 Note 2: The java installation is a reference to remember that it should be present.
+
 Note 3: ImageMagick 6 is optional, it is needed for thumbnailing. This thumbs area is useful for integrating with 
 other tools and for future optimization of change detection process .
 
@@ -132,35 +136,35 @@ For the input URL file it expects the following syntax of each line:
 
 1. Capture a web page with default parameters:
 
-`$ ./pagelyzer capture --url=http://www.google.fr`
+    `$ ./pagelyzer capture --url=http://www.google.fr`
 
-The outcome will be stored in the folder `out` in the current workking directory. If the folder does not exist it will be created. Pagelyzer capture will create three files: 
+    The outcome will be stored in the folder `out` in the current workking directory. If the folder does not exist it will be created. Pagelyzer capture will create three files: 
 
-* firefox_www_google_fr.html (rendered version of the web page)
-* firefox_www_google_fr.dhtml (rendered version with visual cues included for segmentation algorithm)
-* firefox_www_google_fr.png (webshot of the page)
+    * firefox_www_google_fr.html (rendered version of the web page)
+    * firefox_www_google_fr.dhtml (rendered version with visual cues included for segmentation algorithm)
+    * firefox_www_google_fr.png (webshot of the page)
 
 2. Change detection on two pages with default parameters
 
-`$ ./pagelyzer changedetection --url1=http://www.host.com/page1.html --url2=http://www.host.com/page2.html`
+    `$ ./pagelyzer changedetection --url1=http://www.host.com/page1.html --url2=http://www.host.com/page2.html`
 
 3. Change detection on two pages with hybrid method
 
-`$ ./pagelyzer changedetection --url1=http://www.host.com/page1.html --url2=http://www.host.com/page2.html --type=hybrid`
+    `$ ./pagelyzer changedetection --url1=http://www.host.com/page1.html --url2=http://www.host.com/page2.html --type=hybrid`
 
-will create the same files as above for each url and also the ViXMLs and delta file.
+    will create the same files as above for each url and also the ViXMLs and delta file.
 
 4. Change detection with different browsers
 
-`$ ./pagelyzer changedetection --url1=http://www.host.com/page1.html --url2=http://www.host.com/page2.html --browser1=firefox --browser2=chrome`
+    `$ ./pagelyzer changedetection --url1=http://www.host.com/page1.html --url2=http://www.host.com/page2.html --browser1=firefox --browser2=chrome`
 
-url1 will be evaluated with browser1 and url2 with browser2
+    url1 will be evaluated with browser1 and url2 with browser2
 
 4. Change detection with same browser (the most common case)
 
-`$ ./pagelyzer changedetection --url1=http://www.host.com/page1.html --url2=http://www.host.com/page2.html --browser=firefox`
+    `$ ./pagelyzer changedetection --url1=http://www.host.com/page1.html --url2=http://www.host.com/page2.html --browser=firefox`
 
-same browser for both urls
+    same browser for both urls
 
 ## Remarks:
 * Firefox driver is the default to selenium. For installing other browsers can reference to [2],
@@ -169,15 +173,18 @@ e.g. to run pagelyzer on your chrome/chromium instance, you should install the C
 * Unzip it and copy it to a visible folder, e.g:
   `$ sudo cp chromedriver /usr/bin/`
 
-For command-line parameters is better to escape them, e.g:
+For command-line parameters it's better to escape them, e.g:
 
 ./pagelyzer analyzer --decorated-file=/my/path with/spaces -- only processes /my/path !
 ./Pagelyzer analyzer --decorated-file=/my/path\ with/spaces -- results in correct behaviour
 
 * If no Degree of Coherence is given, a default of doc=6 will be chosen.
 * The URL's should include the http schema
-`--url=http://www.host.com ---it is ok!
- --url=host.com ---won't work!`
+
+    `--url=http://www.host.com ---it is ok!`
+    
+    `--url=host.com ---won't work!`
+
 * IMPORTANT: remember to set the paths in configuration files located in ext/ folder.
 
 # External References:
